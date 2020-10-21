@@ -1,8 +1,8 @@
 # http4k-kodein-exposed
 This project is a sample service using [http4k](https://www.http4k.org/) (with Netty) and 
 [Exposed](https://github.com/JetBrains/Exposed) ORM. At some point it will also leverage [Kodein](https://kodein.org/di/) 
-for dependency injection. The ultimate goal is to incorporate a similar sample service into []() to test the performance 
-various frameworks.
+for dependency injection. The ultimate goal is to incorporate a similar sample service into 
+[cautious-engine](https://github.com/vitdebacco/cautious-engine) to test the performance of various frameworks.
 
 ### Build and Run
 1. `docker-compose up`
