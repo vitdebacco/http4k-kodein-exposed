@@ -4,6 +4,8 @@ This project is a sample service using [http4k](https://www.http4k.org/) (with N
 for dependency injection. The ultimate goal is to incorporate a similar sample service into 
 [cautious-engine](https://github.com/vitdebacco/cautious-engine) to test the performance of various frameworks.
 
+This project was initialized as a new Gradle project via IntelliJ.
+
 ### Build and Run
 1. `docker-compose up`
 2. `./gradlew run`
@@ -41,3 +43,10 @@ curl -X PUT 'http://localhost:8080/api/v1/offerings/{id}' -H 'Content-Type: appl
 ```
 curl -X DELETE 'http://localhost:8080/api/v1/offerings/{id}' | jq
 ```
+
+### Helpful Links
+Examples and linked projects from [http4k](https://www.http4k.org/)
+
+This example in particular: [Real World App (Medium Clone)](https://github.com/alisabzevari/kotlin-http4k-realworld-example-app)
+
+[Guide to the Kotlin Exposed Framework](https://www.baeldung.com/kotlin-exposed-persistence)
