@@ -1,4 +1,4 @@
-package com.example
+package com.example.handlers
 
 import com.example.com.example.models.api.OfferingCreateRequest
 import com.example.com.example.models.api.OfferingUpdateRequest

@@ -1,6 +1,8 @@
 package com.example.config
 
 import com.example.models.data.Offerings
+import com.example.models.data.Rating
+import com.example.models.data.Ratings
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
@@ -19,6 +21,7 @@ fun initDB() {
 
 private fun createTables() = transaction {
     SchemaUtils.create(
-        Offerings
+        Offerings,
+        Ratings
     )
 }

@@ -11,10 +11,11 @@ This project was initialized as a new Gradle project via IntelliJ.
 2. `./gradlew run`
 
 ### cURL Requests (w/ jq)
-#### Create
+#### Offerings
+##### Create
 To create an Offering, you must supply `name`, `tasting_notes`, `description`, `url`, and `roaster_name`.
 ```
-curl -X POST 'http://localhost:8080/api/v1/offerings' -H 'Content-Type: application/json' -d '{                                                                            130 ↵
+curl -X POST 'http://localhost:8080/offerings' -H 'Content-Type: application/json' -d '{                                                                            130 ↵
   "name": "Ethiopia Kochere & Yirgacheffe Jabanto",
   "tasting_notes": "Blueberry, Chocolate, Honey",
   "description": "The Jabanto group formed in 2017, after changes in the Ethiopian coffee policy permitted smallholder farmers to be able to directly export and sell their coffees. The group has worked hard to build an enterprising business from scratch and their commitment to careful harvesting and processing each year results in some of our favorite offerings. This year’s production of Jabanto Natural Sundried tastes like blueberry, chocolate, and honey.",
@@ -23,29 +24,50 @@ curl -X POST 'http://localhost:8080/api/v1/offerings' -H 'Content-Type: applicat
 }' | jq
 ```
 
-#### Get All
+##### Get All
 ```
-curl 'http://localhost:8080/api/v1/offerings' | jq
-```
-
-#### Get By ID
-```
-curl 'http://localhost:8080/api/v1/offerings/{id}' | jq
+curl 'http://localhost:8080/offerings' | jq
 ```
 
-#### Update
+##### Get By ID
+```
+curl 'http://localhost:8080/offerings/{id}' | jq
+```
+
+##### Update
 Only `description` is updatable.
 ```
-curl -X PUT 'http://localhost:8080/api/v1/offerings/{id}' -H 'Content-Type: application/json' -d '{ "description":"Updated Description" }' | jq
+curl -X PUT 'http://localhost:8080/offerings/{id}' -H 'Content-Type: application/json' -d '{ "description":"Updated Description" }' | jq
 ```
 
-#### Delete
+##### Delete
 ```
-curl -X DELETE 'http://localhost:8080/api/v1/offerings/{id}' | jq
+curl -X DELETE 'http://localhost:8080/offerings/{id}' | jq
+```
+
+#### Ratings
+##### Create
+```
+curl -X POST 'http://localhost:8080/offerings/61d43952-345e-4648-93d2-d148a84a6c17/ratings' -H 'Content-Type: application/json' -d '{ "value": 5, "comment":"tastes like blueberries and honey!", "offering_id":"61d43952-345e-4648-93d2-d148a84a6c17", "username":"vit" }' | jq
+```
+
+```
+curl -X POST 'http://localhost:8080/offerings/61d43952-345e-4648-93d2-d148a84a6c17/ratings' -H 'Content-Type: application/json' -d '{ "value": 3, "comment":"it was better last year", "offering_id":"61d43952-345e-4648-93d2-d148a84a6c17", "username":"notvit" }' | jq
+```
+
+```
+curl -X POST 'http://localhost:8080/offerings/61d43952-345e-4648-93d2-d148a84a6c17/ratings' -H 'Content-Type: application/json' -d '{ "value": 1, "comment":"this tastes like blueberry. gross", "offering_id":"61d43952-345e-4648-93d2-d148a84a6c17", "username":"definitelynotvit" }' | jq
+```
+
+##### Get All
+```
+curl 'http://localhost:8080/offerings/61d43952-345e-4648-93d2-d148a84a6c17/ratings' | jq
 ```
 
 ### Helpful Links
 Examples and linked projects from [http4k](https://www.http4k.org/)
+
+[http4k](https://github.com/http4k/http4k) on GitHub
 
 This example in particular: [Real World App (Medium Clone)](https://github.com/alisabzevari/kotlin-http4k-realworld-example-app)
 
